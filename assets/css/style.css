@@ -1,3 +1,28 @@
 body {
-    background-color: peachpuff;
+    background-color: #FFFC19;
+    font-family: 'Coda Caption', sans-serif;
+}
+
+h1 {
+    color: #B21259;
+}
+
+#timerHolder{
+    margin: 0;
+    text-align: center;
+    color: #B21259;
+    font-size: 30px;
+}
+
+#question {
+    text-align: center;
+    color: #B21259;
+    font-size: 30px;
+}
+
+#answers {
+    text-align: center;
+    color: #B21259;
+    margin: 20px;
+    font-size: 30px;
 }

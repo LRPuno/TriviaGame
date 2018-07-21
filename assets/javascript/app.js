@@ -35,8 +35,8 @@ var answerObjectArray={
 
     answerPairs : {
         questionOneAnswers: ["Paris","Who Cares?","Bikini Bottom","Crippling Depression"],
-        questionTwoAnswers: ["Believes in Me as A Person","Beats My Ass","Went to get Milk and Cigarettes and Never Came Back","This is Getting Dark"],
-        questionThreeAnswers: ["No","No","Yes","What is Life?"],
+        questionTwoAnswers: ["Gives Me Fatherly Lessons","Beats My Ass","Went to get Milk and Cigarettes and Never Came Back","This is Getting Dark"],
+        questionThreeAnswers: ["No","Maybe","Yes","What is Life?"],
         questionFourAnswers: ["place-0","place-1","place-2","place-3"],
         questionFiveAnswers: ["Yes","Yes","Yes","No"]
     }
@@ -61,6 +61,7 @@ $(document).ready(function() {
             runClockForQuestion();
             for (var i=0;i<answerObjectArray.answerPairs.questionOneAnswers.length;i++) {
                 var newButton=$("<button>").addClass("questionOneButtons"+[i]);
+                newButton.addClass("btn btn-info btn-large btn-block");
                 var newDiv=$("<div>").css(
                     {"margin" : "20px",
                      "margin-left": "0px"}
@@ -93,9 +94,11 @@ $(document).ready(function() {
             runClockForQuestion();
             for (var i=0;i<answerObjectArray.answerPairs.questionTwoAnswers.length;i++) {
                 var newButton=$("<button>").addClass("questionTwoButtons"+[i]);
+                newButton.addClass("btn btn-info btn-large btn-block");
                 var newDiv=$("<div>").css(
                     {"margin" : "20px",
-                     "margin-left": "0px"}
+                    "margin-left": "0px"
+                    }
                                                 );
                 $(newButton).text(answerObjectArray.answerPairs.questionTwoAnswers[i]);
                 $(newDiv).append(newButton);
@@ -124,6 +127,7 @@ $(document).ready(function() {
             runClockForQuestion();
             for (var i=0;i<answerObjectArray.answerPairs.questionThreeAnswers.length;i++) {
                 var newButton=$("<button>").addClass("questionThreeButtons"+[i]);
+                newButton.addClass("btn btn-info btn-large btn-block");
                 var newDiv=$("<div>").css(
                     {"margin" : "20px",
                      "margin-left": "0px"}
@@ -135,25 +139,26 @@ $(document).ready(function() {
             $("#question").text(answerObjectArray.questions[2]);
 
             $("body").on("click",".questionThreeButtons0", function () {
-                loserChickenDinner(answerObjectArray.answerPairs.questionThreeAnswers[2],answerObjectArray.answerPairs.questionThreeAnswers[0])
+                loserChickenDinner(answerObjectArray.answerPairs.questionThreeAnswers[1],answerObjectArray.answerPairs.questionThreeAnswers[0])
             });
 
             $("body").on("click",".questionThreeButtons1", function () {
-                winnerChickenDinner(answerObjectArray.answerPairs.questionThreeAnswers[2]);
+                winnerChickenDinner(answerObjectArray.answerPairs.questionThreeAnswers[1]);
             });
 
             $("body").on("click",".questionThreeButtons2", function () {
-                loserChickenDinner(answerObjectArray.answerPairs.questionThreeAnswers[2],answerObjectArray.answerPairs.questionThreeAnswers[2])
+                loserChickenDinner(answerObjectArray.answerPairs.questionThreeAnswers[1],answerObjectArray.answerPairs.questionThreeAnswers[2])
             });
 
             $("body").on("click",".questionThreeButtons3", function () {
-                loserChickenDinner(answerObjectArray.answerPairs.questionThreeAnswers[2],answerObjectArray.answerPairs.questionThreeAnswers[3])
+                loserChickenDinner(answerObjectArray.answerPairs.questionThreeAnswers[1],answerObjectArray.answerPairs.questionThreeAnswers[3])
             });
         }
         if (indexLoop===3) {
             runClockForQuestion();
             for (var i=0;i<answerObjectArray.answerPairs.questionFourAnswers.length;i++) {
                 var newButton=$("<button>").addClass("questionFourButtons"+[i]);
+                newButton.addClass("btn btn-info btn-large btn-block");
                 var newDiv=$("<div>").css(
                     {"margin" : "20px",
                      "margin-left": "0px"}
@@ -169,11 +174,11 @@ $(document).ready(function() {
             });
 
             $("body").on("click",".questionFourButtons1", function () {
-                winnerChickenDinner(answerObjectArray.answerPairs.questionFourAnswers[2]);
+                loserChickenDinner(answerObjectArray.answerPairs.questionFourAnswers[2],answerObjectArray.answerPairs.questionFourAnswers[1])
             });
 
             $("body").on("click",".questionFourButtons2", function () {
-                loserChickenDinner(answerObjectArray.answerPairs.questionFourAnswers[2],answerObjectArray.answerPairs.questionFourAnswers[2])
+                winnerChickenDinner(answerObjectArray.answerPairs.questionFourAnswers[2]);
             });
 
             $("body").on("click",".questionFourButtons3", function () {
@@ -185,6 +190,7 @@ $(document).ready(function() {
             runClockForQuestion();
             for (var i=0;i<answerObjectArray.answerPairs.questionFiveAnswers.length;i++) {
                 var newButton=$("<button>").addClass("questionFiveButtons"+[i]);
+                newButton.addClass("btn btn-info btn-large btn-block");
                 var newDiv=$("<div>").css(
                     {"margin" : "20px",
                      "margin-left": "0px"}
@@ -227,35 +233,35 @@ $(document).ready(function() {
     //Timer Function for When You Need to Answer a Question. This is a setInterval
     function runClockForQuestion() {
         clearInterval(timeClockForQuestion);
-        $("#timerHolder").html("THE TRUE TIMER: "+counterOne);
+        $("#timerHolder").html("TIMER: "+counterOne);
         timeClockForQuestion = setInterval(countDownClockForQuestion, 1000);
     };
   
     function countDownClockForQuestion() {
         counterOne--;
-        $("#timerHolder").html("THE TRUE TIMER: "+counterOne);
-        if (counterOne<=0) {
+        $("#timerHolder").html("TIMER: "+counterOne);
+        if (counterOne<=-1) {
             clearInterval(timeClockForQuestion);
             $("#timerHolder, #question, #answers").empty();
             if (indexLoop===0) {
-                $("#answers").text("The Correct Answer Is "+answerObjectArray.answerPairs.questionOneAnswers[0]);
+                $("#answers").text("The Correct Answer: "+answerObjectArray.answerPairs.questionOneAnswers[0]);
                 $("#answers").append("<p>You Pick--Wait! Hold up! You're too much of a coward to pick an answer?</p>");
             }
             if (indexLoop===1) {
-                $("#answers").text("The Correct Answer Is "+answerObjectArray.answerPairs.questionTwoAnswers[3]);
+                $("#answers").text("The Correct Answer: "+answerObjectArray.answerPairs.questionTwoAnswers[3]);
                 $("#answers").append("<p>You Pick--Wait! Hold up! You're too much of a coward to pick an answer? The first question should be a lot harder. Or at least I think I coded it in that way? Is there a bug in my code?</p>");
             }
             if (indexLoop===2) {
-                $("#answers").text("The Correct Answer Is "+answerObjectArray.answerPairs.questionThreeAnswers[2]);
+                $("#answers").text("The Correct Answer: "+answerObjectArray.answerPairs.questionThreeAnswers[2]);
                 $("#answers").append("<p>You Pick--Wait! Hold up! You're too much of a coward to pick an answer? The first question should be a lot harder. Or at least I think I coded it in that way? Is there a bug in my code? Am I just repeating over and over again? Is this loop going to stop?</p>");
             }
             if (indexLoop===3) {
-                $("#answers").text("The Correct Answer Is "+answerObjectArray.answerPairs.questionFourAnswers[2]);
+                $("#answers").text("The Correct Answer: "+answerObjectArray.answerPairs.questionFourAnswers[2]);
                 $("#answers").append("<p>Please Pick Something Next Time! You're KILLING ME HERE!</p>");
             }
             if (indexLoop===4) {
-                $("#answers").text("The Correct Answer Is "+answerObjectArray.answerPairs.questionFiveAnswers[2]);
-                $("#answers").append("<p>.............You're not going to give me a good grade? Silence is the worst type of rejection you know?<p>");
+                $("#answers").text("The Correct Answer: "+answerObjectArray.answerPairs.questionFiveAnswers[2]);
+                $("#answers").append("<p>You're not going to give me a good grade? But I'm Funny?<p>");
             }
             totalWrong++;
             counterTwo=10;
@@ -274,7 +280,7 @@ $(document).ready(function() {
     function countDownCorrectAnswer() {
         counterTwo--;
         $("#timerHolder").html("The Second Timer: "+counterTwo);
-        if (counterTwo<=0) {
+        if (counterTwo<=-1) {
             clearInterval(timeClockForAnswerDisplay);
             indexLoop++;
             console.log(indexLoop+" "+"This is indexLoop");
@@ -291,7 +297,7 @@ $(document).ready(function() {
         totalCorrect++;
         counterTwo=10;
         $("#timerHolder, #question, #answers").empty();
-        $("#answers").text("The Correct Answer is "+answer);
+        $("#answers").text("The Correct Answer: "+answer);
         var newDiv=$("<div>").text("You Picked "+answer+". Well Done!");
         $("#answers").append(newDiv);
         clearInterval(timeClockForQuestion);
@@ -303,7 +309,7 @@ $(document).ready(function() {
         totalWrong++;
         counterTwo=10;
         $("#timerHolder, #question, #answers").empty();
-        $("#answers").text("The Correct Answer is "+answer);
+        $("#answers").text("The Correct Answer: "+answer);
         var newDiv=$("<div>").text("You Picked "+wrongAnswer+". YOU F*****G IDIOT!");
         $("#answers").append(newDiv);
         clearInterval(timeClockForQuestion);
