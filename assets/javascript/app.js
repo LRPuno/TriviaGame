@@ -333,7 +333,7 @@ $(document).ready(function() {
     };
 
     function loserGiphy () {
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=lose&api_key=dc6zaTOxFJmzC";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=fail&api_key=dc6zaTOxFJmzC";
         $.ajax({
             url: queryURL,
             method: "GET"
@@ -348,7 +348,7 @@ $(document).ready(function() {
     }
 
     function winnerGiphy () {
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=win&api_key=dc6zaTOxFJmzC";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=yes&api_key=dc6zaTOxFJmzC";
         $.ajax({
             url: queryURL,
             method: "GET"
