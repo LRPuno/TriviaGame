@@ -133,5 +133,5 @@ Timer Functions:
 
 Game starts when you click the start button. A timer will be displayed along with the questions and answers that were dynamically generated. If you click a button whether right or wrong it will send you to a break page that tells you the right answer and the answer you picked. The variables that hold the total amount of correct and wrong are updated. If you don't click anything, it leads you to the break question and gives you some sarcastic and witty line. When this break section ends, it increases the indexLoop and runs the initFunction again, but this time the indexLoop will point to a different code with a different set of questions and answers (once again dynamically generated). The game will eventually end when it hits the specified indexLoop of five which will show the scoreboard (with the updated variables) and clear all the interval timers and empty out all the unneccessary HTML elements.
 
-9. I added Giphys whenever you click a button (changes depending on win or lose), don't answer, and when the loading screen hits. It appends at the end of the page. They are also in functions for easier use.
+9. I added Giphys whenever you click a button (changes depending on win or lose) or don't answer. Unique for each event. It appends at the end of the page. They are also in functions for easier use.
 

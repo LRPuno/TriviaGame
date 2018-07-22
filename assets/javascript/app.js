@@ -237,6 +237,7 @@ $(document).ready(function() {
             $("#scoreSection").show();
             $("#correctDisplay").text(totalCorrect);
             $("#wrongDisplay").text(totalWrong);
+            endGameGiphy();
         }
         
     }
@@ -276,7 +277,7 @@ $(document).ready(function() {
                 $("#answers").text("The Correct Answer: "+'"'+answerObjectArray.answerPairs.questionFiveAnswers[2]+'"');
                 $("#answers").append("<p>You're not going to give me a good grade? But I'm Funny?<p>");
             }
-            loserGiphy();
+            cowardGiphy();
             totalWrong++;
             counterTwo=10;
             runCorrectAnswerDisplay();
@@ -294,15 +295,12 @@ $(document).ready(function() {
     function countDownCorrectAnswer() {
         counterTwo--;
         $("#timerHolder").html("The Second Timer: "+counterTwo);
-        if (counterTwo===9 & indexLoop<5) {
-            loadingScreenGiphy();
-        }
         if (counterTwo<=-1) {
             clearInterval(timeClockForAnswerDisplay);
             indexLoop++;
             console.log(indexLoop+" "+"This is indexLoop");
             counterOne=10;
-            $("#timerHolder, #question, #answers").empty();
+            $("#timerHolder, #question, #answers, #gif-holder").empty();
             initGame();
         }
     };
@@ -343,6 +341,8 @@ $(document).ready(function() {
             var randomNumber=Math.floor(Math.random()*10) + 1;
             var newImage=$("<img>");
             newImage.attr("src",response.data[randomNumber].images.fixed_height.url)
+            newImage.addClass("rounded mx-auto d-block");
+            $("#gif-holder").empty();
             $("#gif-holder").append(newImage);
         });
     }
@@ -356,12 +356,14 @@ $(document).ready(function() {
             var randomNumber=Math.floor(Math.random()*10) + 1;
             var newImage=$("<img>");
             newImage.attr("src",response.data[randomNumber].images.fixed_height.url)
+            newImage.addClass("rounded mx-auto d-block");
+            $("#gif-holder").empty();
             $("#gif-holder").append(newImage);
         });
     }
 
-    function loadingScreenGiphy () {
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=loading&api_key=dc6zaTOxFJmzC";
+    function cowardGiphy () {
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=coward&api_key=dc6zaTOxFJmzC";
         $.ajax({
             url: queryURL,
             method: "GET"
@@ -369,9 +371,26 @@ $(document).ready(function() {
             var randomNumber=Math.floor(Math.random()*10) + 1;
             var newImage=$("<img>");
             newImage.attr("src",response.data[randomNumber].images.fixed_height.url)
+            newImage.addClass("rounded mx-auto d-block");
+            $("#gif-holder").empty();
             $("#gif-holder").append(newImage);
         });
     }
+
+    function endGameGiphy () {
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=congratulations&api_key=dc6zaTOxFJmzC";
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function(response) {
+            var randomNumber=Math.floor(Math.random()*10) + 1;
+            var newImage=$("<img>");
+            newImage.attr("src",response.data[randomNumber].images.fixed_height.url)
+            newImage.addClass("rounded mx-auto d-block");
+            $("#gif-holder-x").append(newImage);
+        });
+    }
+
 
 });
 
