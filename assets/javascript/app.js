@@ -4,8 +4,6 @@
 var totalCorrect=0;
 var totalWrong=0;
 
-//
-
 var indexLoop=0; // This is a ghetto loop constructor.
 
 //DOM Element for Reference
@@ -52,6 +50,7 @@ $(document).ready(function() {
     $("#clickToStartGame").on("click", function() {
         $("#startSection").hide();
         initGame();
+        
     });
 
     function initGame() {
@@ -63,8 +62,7 @@ $(document).ready(function() {
                 var newButton=$("<button>").addClass("questionOneButtons"+[i]);
                 newButton.addClass("btn btn-info btn-large btn-block");
                 var newDiv=$("<div>").css(
-                    {"margin" : "20px",
-                     "margin-left": "0px"}
+                    {"margin" : "20px"}
                                                 );
                 $(newButton).text(answerObjectArray.answerPairs.questionOneAnswers[i]);
                 $(newDiv).append(newButton);
@@ -75,18 +73,22 @@ $(document).ready(function() {
 
             $("body").on("click",".questionOneButtons0", function () {
                 winnerChickenDinner(answerObjectArray.answerPairs.questionOneAnswers[0]);
+                winnerGiphy();
             });
 
             $("body").on("click",".questionOneButtons1", function () {
                 loserChickenDinner(answerObjectArray.answerPairs.questionOneAnswers[0],answerObjectArray.answerPairs.questionOneAnswers[1])
+                loserGiphy();
             });
 
             $("body").on("click",".questionOneButtons2", function () {
                 loserChickenDinner(answerObjectArray.answerPairs.questionOneAnswers[0],answerObjectArray.answerPairs.questionOneAnswers[2])
+                loserGiphy();
             });
 
             $("body").on("click",".questionOneButtons3", function () {
                 loserChickenDinner(answerObjectArray.answerPairs.questionOneAnswers[0],answerObjectArray.answerPairs.questionOneAnswers[3])
+                loserGiphy();
             });
         }
 
@@ -96,9 +98,7 @@ $(document).ready(function() {
                 var newButton=$("<button>").addClass("questionTwoButtons"+[i]);
                 newButton.addClass("btn btn-info btn-large btn-block");
                 var newDiv=$("<div>").css(
-                    {"margin" : "20px",
-                    "margin-left": "0px"
-                    }
+                    {"margin" : "20px"}
                                                 );
                 $(newButton).text(answerObjectArray.answerPairs.questionTwoAnswers[i]);
                 $(newDiv).append(newButton);
@@ -108,18 +108,22 @@ $(document).ready(function() {
 
             $("body").on("click",".questionTwoButtons0", function () {
                 loserChickenDinner(answerObjectArray.answerPairs.questionTwoAnswers[3],answerObjectArray.answerPairs.questionTwoAnswers[0])
+                loserGiphy();
             });
 
             $("body").on("click",".questionTwoButtons1", function () {
                 loserChickenDinner(answerObjectArray.answerPairs.questionTwoAnswers[3],answerObjectArray.answerPairs.questionTwoAnswers[1])
+                loserGiphy();
             });
 
             $("body").on("click",".questionTwoButtons2", function () {
                 loserChickenDinner(answerObjectArray.answerPairs.questionTwoAnswers[3],answerObjectArray.answerPairs.questionTwoAnswers[2])
+                loserGiphy();
             });
 
             $("body").on("click",".questionTwoButtons3", function () {
                 winnerChickenDinner(answerObjectArray.answerPairs.questionTwoAnswers[3]);
+                winnerGiphy();
             });
         }
 
@@ -129,8 +133,7 @@ $(document).ready(function() {
                 var newButton=$("<button>").addClass("questionThreeButtons"+[i]);
                 newButton.addClass("btn btn-info btn-large btn-block");
                 var newDiv=$("<div>").css(
-                    {"margin" : "20px",
-                     "margin-left": "0px"}
+                    {"margin" : "20px"}
                                                 );
                 $(newButton).text(answerObjectArray.answerPairs.questionThreeAnswers[i]);
                 $(newDiv).append(newButton);
@@ -140,18 +143,22 @@ $(document).ready(function() {
 
             $("body").on("click",".questionThreeButtons0", function () {
                 loserChickenDinner(answerObjectArray.answerPairs.questionThreeAnswers[1],answerObjectArray.answerPairs.questionThreeAnswers[0])
+                loserGiphy();
             });
 
             $("body").on("click",".questionThreeButtons1", function () {
                 winnerChickenDinner(answerObjectArray.answerPairs.questionThreeAnswers[1]);
+                winnerGiphy();
             });
 
             $("body").on("click",".questionThreeButtons2", function () {
                 loserChickenDinner(answerObjectArray.answerPairs.questionThreeAnswers[1],answerObjectArray.answerPairs.questionThreeAnswers[2])
+                loserGiphy();
             });
 
             $("body").on("click",".questionThreeButtons3", function () {
                 loserChickenDinner(answerObjectArray.answerPairs.questionThreeAnswers[1],answerObjectArray.answerPairs.questionThreeAnswers[3])
+                loserGiphy();
             });
         }
         if (indexLoop===3) {
@@ -160,8 +167,7 @@ $(document).ready(function() {
                 var newButton=$("<button>").addClass("questionFourButtons"+[i]);
                 newButton.addClass("btn btn-info btn-large btn-block");
                 var newDiv=$("<div>").css(
-                    {"margin" : "20px",
-                     "margin-left": "0px"}
+                    {"margin" : "20px"}
                                                 );
                 $(newButton).text(answerObjectArray.answerPairs.questionFourAnswers[i]);
                 $(newDiv).append(newButton);
@@ -171,18 +177,22 @@ $(document).ready(function() {
 
             $("body").on("click",".questionFourButtons0", function () {
                 loserChickenDinner(answerObjectArray.answerPairs.questionFourAnswers[2],answerObjectArray.answerPairs.questionFourAnswers[0])
+                loserGiphy();
             });
 
             $("body").on("click",".questionFourButtons1", function () {
                 loserChickenDinner(answerObjectArray.answerPairs.questionFourAnswers[2],answerObjectArray.answerPairs.questionFourAnswers[1])
+                loserGiphy();
             });
 
             $("body").on("click",".questionFourButtons2", function () {
                 winnerChickenDinner(answerObjectArray.answerPairs.questionFourAnswers[2]);
+                winnerGiphy();
             });
 
             $("body").on("click",".questionFourButtons3", function () {
                 loserChickenDinner(answerObjectArray.answerPairs.questionFourAnswers[2],answerObjectArray.answerPairs.questionFourAnswers[3])
+                loserGiphy();
             });
         }
 
@@ -192,8 +202,7 @@ $(document).ready(function() {
                 var newButton=$("<button>").addClass("questionFiveButtons"+[i]);
                 newButton.addClass("btn btn-info btn-large btn-block");
                 var newDiv=$("<div>").css(
-                    {"margin" : "20px",
-                     "margin-left": "0px"}
+                    {"margin" : "20px"}
                                                 );
                 $(newButton).text(answerObjectArray.answerPairs.questionFiveAnswers[i]);
                 $(newDiv).append(newButton);
@@ -203,18 +212,22 @@ $(document).ready(function() {
 
             $("body").on("click",".questionFiveButtons0", function () {
                 winnerChickenDinner(answerObjectArray.answerPairs.questionFiveAnswers[0]);
+                winnerGiphy();
             });
 
             $("body").on("click",".questionFiveButtons1", function () {
                 winnerChickenDinner(answerObjectArray.answerPairs.questionFiveAnswers[1]);
+                winnerGiphy();
             });
 
             $("body").on("click",".questionFiveButtons2", function () {
                 winnerChickenDinner(answerObjectArray.answerPairs.questionFiveAnswers[2]);
+                winnerGiphy();
             });
 
             $("body").on("click",".questionFiveButtons3", function () {
                 loserChickenDinner(answerObjectArray.answerPairs.questionFiveAnswers[3],answerObjectArray.answerPairs.questionFiveAnswers[0]);
+                loserGiphy();
             });
         }
         
@@ -244,25 +257,26 @@ $(document).ready(function() {
             clearInterval(timeClockForQuestion);
             $("#timerHolder, #question, #answers").empty();
             if (indexLoop===0) {
-                $("#answers").text("The Correct Answer: "+answerObjectArray.answerPairs.questionOneAnswers[0]);
+                $("#answers").text("The Correct Answer: "+'"'+answerObjectArray.answerPairs.questionOneAnswers[0]+'"');
                 $("#answers").append("<p>You Pick--Wait! Hold up! You're too much of a coward to pick an answer?</p>");
             }
             if (indexLoop===1) {
-                $("#answers").text("The Correct Answer: "+answerObjectArray.answerPairs.questionTwoAnswers[3]);
+                $("#answers").text("The Correct Answer: "+'"'+answerObjectArray.answerPairs.questionTwoAnswers[3]+'"');
                 $("#answers").append("<p>You Pick--Wait! Hold up! You're too much of a coward to pick an answer? The first question should be a lot harder. Or at least I think I coded it in that way? Is there a bug in my code?</p>");
             }
             if (indexLoop===2) {
-                $("#answers").text("The Correct Answer: "+answerObjectArray.answerPairs.questionThreeAnswers[2]);
+                $("#answers").text("The Correct Answer: "+'"'+answerObjectArray.answerPairs.questionThreeAnswers[2]+'"');
                 $("#answers").append("<p>You Pick--Wait! Hold up! You're too much of a coward to pick an answer? The first question should be a lot harder. Or at least I think I coded it in that way? Is there a bug in my code? Am I just repeating over and over again? Is this loop going to stop?</p>");
             }
             if (indexLoop===3) {
-                $("#answers").text("The Correct Answer: "+answerObjectArray.answerPairs.questionFourAnswers[2]);
+                $("#answers").text("The Correct Answer: "+'"'+answerObjectArray.answerPairs.questionFourAnswers[2]+'"');
                 $("#answers").append("<p>Please Pick Something Next Time! You're KILLING ME HERE!</p>");
             }
             if (indexLoop===4) {
-                $("#answers").text("The Correct Answer: "+answerObjectArray.answerPairs.questionFiveAnswers[2]);
+                $("#answers").text("The Correct Answer: "+'"'+answerObjectArray.answerPairs.questionFiveAnswers[2]+'"');
                 $("#answers").append("<p>You're not going to give me a good grade? But I'm Funny?<p>");
             }
+            loserGiphy();
             totalWrong++;
             counterTwo=10;
             runCorrectAnswerDisplay();
@@ -280,6 +294,9 @@ $(document).ready(function() {
     function countDownCorrectAnswer() {
         counterTwo--;
         $("#timerHolder").html("The Second Timer: "+counterTwo);
+        if (counterTwo===9) {
+            loadingScreenGiphy();
+        }
         if (counterTwo<=-1) {
             clearInterval(timeClockForAnswerDisplay);
             indexLoop++;
@@ -297,24 +314,64 @@ $(document).ready(function() {
         totalCorrect++;
         counterTwo=10;
         $("#timerHolder, #question, #answers").empty();
-        $("#answers").text("The Correct Answer: "+answer);
-        var newDiv=$("<div>").text("You Picked "+answer+". Well Done!");
+        $("#answers").text("The Correct Answer: "+'"'+answer+'"');
+        var newDiv=$("<div>").text("You Picked: "+'"'+answer+'"'+". Well Done!");
         $("#answers").append(newDiv);
         clearInterval(timeClockForQuestion);
         runCorrectAnswerDisplay();
     };
 
+    //Functions to display Giphy API
     function loserChickenDinner(answer,wrongAnswer) {
    
         totalWrong++;
         counterTwo=10;
         $("#timerHolder, #question, #answers").empty();
-        $("#answers").text("The Correct Answer: "+answer);
-        var newDiv=$("<div>").text("You Picked "+wrongAnswer+". YOU F*****G IDIOT!");
+        $("#answers").text("The Correct Answer: "+'"'+answer+'"');
+        var newDiv=$("<div>").text("You Picked: "+'"'+wrongAnswer+'"'+". YOU F*****G IDIOT!");
         $("#answers").append(newDiv);
         clearInterval(timeClockForQuestion);
         runCorrectAnswerDisplay();
     };
+
+    function loserGiphy () {
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=lose&api_key=dc6zaTOxFJmzC";
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function(response) {
+            var randomNumber=Math.floor(Math.random()*10) + 1;
+            var newImage=$("<img>");
+            newImage.attr("src",response.data[randomNumber].images.fixed_height.url)
+            $("#gif-holder").append(newImage);
+        });
+    }
+
+    function winnerGiphy () {
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=win&api_key=dc6zaTOxFJmzC";
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function(response) {
+            var randomNumber=Math.floor(Math.random()*10) + 1;
+            var newImage=$("<img>");
+            newImage.attr("src",response.data[randomNumber].images.fixed_height.url)
+            $("#gif-holder").append(newImage);
+        });
+    }
+
+    function loadingScreenGiphy () {
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=loading&api_key=dc6zaTOxFJmzC";
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function(response) {
+            var randomNumber=Math.floor(Math.random()*10) + 1;
+            var newImage=$("<img>");
+            newImage.attr("src",response.data[randomNumber].images.fixed_height.url)
+            $("#gif-holder").append(newImage);
+        });
+    }
 
 });
 
