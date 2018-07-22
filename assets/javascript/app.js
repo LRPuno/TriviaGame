@@ -294,7 +294,7 @@ $(document).ready(function() {
     function countDownCorrectAnswer() {
         counterTwo--;
         $("#timerHolder").html("The Second Timer: "+counterTwo);
-        if (counterTwo===9) {
+        if (counterTwo===9 & indexLoop<5) {
             loadingScreenGiphy();
         }
         if (counterTwo<=-1) {
